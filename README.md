@@ -20,10 +20,10 @@ None of these are required up front: the skill offers to install what's missing 
 ## Install
 
 ```bash
-npx skills add Orneryy/ornery-decent-webdesign -g -a claude-code
+npx skills add Orneryy/ornery-decent-webdesign
 ```
 
-Then ask Claude Code for a UI change, or run `/ornery-decent-webdesign`.
+The installer asks where to install it (globally or just in the current project) and for which agents: pick Claude Code, since the skill relies on its question prompts and MCP loading. Then ask Claude Code for a UI change, or run `/ornery-decent-webdesign`.
 
 Requirements: Node 18 or later and git. Brilliant is optional and macOS only.
 
