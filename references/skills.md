@@ -13,6 +13,7 @@ Load a skill by name with the Skill tool. Missing ones show up in the `scripts/c
 | A ready CSS transition | `transitions-dev` | 32 recipes with a reduced-motion guard |
 | Reviewing existing transitions | `transitions-polish` | After `transitions-dev`, or on older screens |
 | ui lab components | `ui-lab` | Index, demo and source; installing follows the adoption rules |
+| ReUI components and blocks | `reui` | Full reference for the ReUI MCP (`tools.md`) and registry rules. Its design rules only bind projects that already use ReUI |
 | Fluid Functionalism patterns | `fluid-functionalism` | `scripts/stack.mjs` reads the project's stack without writing; `scripts/audit.mjs` measures a running route on the local preview |
 | Layout across widths | `responsive-design` | Mobile, tablet and desktop |
 | Accessibility | `design:accessibility-review` | WCAG, contrast, keyboard and screen readers |

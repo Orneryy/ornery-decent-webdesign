@@ -43,6 +43,17 @@ Searches `@shadcn` and the registries in the project's `components.json` (withou
 - `get_install_command` returns `npx shadcn@latest add https://hextaui.com/r/<name>.json`. That command brings HextaUI's theme tokens and the components the item depends on, replacing the project's own (`alert-dialog` alone replaces `button`, `sheet`, `spinner` and `alert-dialog` and adds 70 CSS variables): check the dry-run.
 - Site: `https://hextaui.com/docs/<name>`; summary at `https://hextaui.com/llms.txt`.
 
+## `reui` MCP — `https://reui.io`
+
+Checked on 2026-10-12. A shadcn registry with components that have a real API (`data-grid`, `kanban`, `filters`, `date-selector`, `tree` and more), free `c-*` examples built from them, Pro blocks (full-page sections) and Ultimate Motion Icons. Every item ships in a `base` (Base UI) and a `radix` build; the CLI picks the one matching `components.json` `style`.
+
+- Endpoint `https://mcp.reui.io/api/mcp`. Free, but needs a ReUI account: sign in through `/mcp` → `reui` (or `claude mcp login reui`). Free accounts have a daily request limit.
+- The MCP serves discovery and APIs, never source. Path: `search` (results already carry `install`, `previewUrl`, `thumbnail`, `componentsUsed` and `componentDigests`) → one batched `get_component` → `get_examples`. Watch `missedTerms` and `weakMatch` before trusting a high score. `compose_page` plans a full page; on a free account it answers with free `c-*` examples. `validate_usage` checks props before writing code.
+- Install: `npx shadcn@latest add @reui/<name>`, after registering `"@reui": "https://reui.io/r/{style}/{name}.json"` in `components.json` (a committed file: ask first). To read source without registering, use the item URL with `--dry-run` and `--view`. `get_project_context` returns the right registry config.
+- `@reui/badge` and `@reui/alert` are ReUI's own; bare `badge` and `alert` are shadcn's. Items install into `components/reui/`.
+- Blocks and Motion Icons need a paid license at install: reference only, as with every "Pro" item.
+- The `reui` skill (`~/.claude/skills/reui/`, with `tools.md` and `rules/`) holds the full tool reference. Its design rules apply only to projects that already use ReUI.
+
 ## Watermelon UI (`watermelon` MCP or claude.ai connector) — `https://ui.watermelon.sh`
 
 849 items: 516 `components`, 131 `animated-components`, 189 `blocks`, 12 `dashboards`, 1 `templates`. Public MCP endpoint, no key: `https://mcp.watermelon.sh/mcp`.

@@ -11,9 +11,9 @@ A Claude Code skill for building web UI the decent way: start from a design foun
 
 It knows how to use:
 
-- **MCPs:** [shadcn](https://ui.shadcn.com), [HextaUI](https://hextaui.com), [Watermelon UI](https://ui.watermelon.sh), Brilliant.
+- **MCPs:** [shadcn](https://ui.shadcn.com), [HextaUI](https://hextaui.com), [ReUI](https://reui.io), [Watermelon UI](https://ui.watermelon.sh), Brilliant.
 - **Sites without an MCP:** [animate-ui](https://animate-ui.com), [uselayouts](https://uselayouts.com), [ui lab](https://lab.xevrion.dev), [uiarc](https://uiarc.dev), [EasyUI](https://www.easyui.site), [Fluid Functionalism](https://www.fluidfunctionalism.com).
-- **Skills:** impeccable, emil-design-eng, make-interfaces-feel-better, better-ui, transitions-dev, transitions-polish, ui-lab, fluid-functionalism, responsive-design, design-taste-frontend.
+- **Skills:** impeccable, emil-design-eng, make-interfaces-feel-better, better-ui, transitions-dev, transitions-polish, ui-lab, fluid-functionalism, reui, responsive-design, design-taste-frontend.
 
 None of these are required up front: the skill offers to install what's missing and works with whatever you have.
 

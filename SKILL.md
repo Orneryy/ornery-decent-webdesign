@@ -1,6 +1,6 @@
 ---
 name: ornery-decent-webdesign
-description: Web UI workflow — sets up the project (installs MCPs and skills with consent), starts from DESIGN.md and a design system, asks whether to mock up in Brilliant first, and teaches the component MCPs (shadcn, HextaUI, Watermelon, Brilliant), design and motion skills, and component library sites (animate-ui, uselayouts, ui lab, uiarc, EasyUI, Fluid Functionalism). Use before building or changing UI, when looking for a ready-made component, animation or pattern, or when the user asks to design in Brilliant, search the component libraries, or names one of them.
+description: Web UI workflow — sets up the project (installs MCPs and skills with consent), starts from DESIGN.md and a design system, asks whether to mock up in Brilliant first, and teaches the component MCPs (shadcn, HextaUI, ReUI, Watermelon, Brilliant), design and motion skills, and component library sites (animate-ui, uselayouts, ui lab, uiarc, EasyUI, Fluid Functionalism). Use before building or changing UI, when looking for a ready-made component, animation or pattern, or when the user asks to design in Brilliant, search the component libraries, or names one of them.
 ---
 
 # Ornery decent webdesign
@@ -51,19 +51,22 @@ If Brilliant isn't installed or open (setup report), say so in the description o
 
 ## 4. Change flow
 
-1. **Scouting.** Search in this order: the project itself → registries in `components.json` through the `shadcn` MCP → HextaUI → Watermelon → sites without an MCP (ui lab, uiarc, EasyUI, Fluid). How to use each: [references/catalogs.md](references/catalogs.md). Done when there are 2 to 4 candidates, each with a demo link, dependencies and license, or a finding that nothing fits.
+1. **Scouting.** Search in this order: the project itself → registries in `components.json` through the `shadcn` MCP → HextaUI → ReUI → Watermelon → sites without an MCP (ui lab, uiarc, EasyUI, Fluid). How to use each: [references/catalogs.md](references/catalogs.md). Done when there are 2 to 4 candidates, each with a demo link, dependencies and license, or a finding that nothing fits.
 2. **Mockup**, if the brief says yes: [references/brilliant.md](references/brilliant.md). Done when the exported PNG was shown and the user approved the direction.
 3. **Inspect without installing.** Read the candidate's code and run `npx shadcn@latest add <item> --dry-run`. Done when you know which files would be created or overwritten, which dependencies would be added and how many CSS variables would land in the global CSS.
 4. **Adapt.** Bring the pattern into the project following the adoption rules below. Done when no rule is broken and the license is recorded.
 5. **Verify.** Polish and audit with the skills ([references/skills.md](references/skills.md)); local preview with keyboard, mouse, reduced motion and mobile width. Done when a preview screenshot was shown and, if the project keeps an inventory of UI resources, it records what was adopted or rejected.
 
-MCPs are deferred tools: load their schemas with ToolSearch (`select:` with all the names at once). Watermelon (tools `search`, `get_inspiration`, `get_component`, `compose_page`) arrives either as a `watermelon` server (`mcp__watermelon__search` and so on) or as a claude.ai connector whose prefix is a UUID. Try `select:` with the `watermelon` server names first; if they don't exist, search for `Watermelon` and confirm by the description, because keyword search mixes in tools from other connectors.
+MCPs are deferred tools: load their schemas with ToolSearch (`select:` with all the names at once). Watermelon (tools `search`, `get_inspiration`, `get_component`, `compose_page`) arrives either as a `watermelon` server (`mcp__watermelon__search` and so on) or as a claude.ai connector whose prefix is a UUID. Try `select:` with the `watermelon` server names first; if they don't exist, search for `Watermelon` and confirm by the description, because keyword search mixes in tools from other connectors. The ReUI MCP (`mcp__reui__*`) needs a ReUI sign-in: if `claude mcp list` shows "Needs authentication", ask the user to run `/mcp` and pick `reui`.
+
+The `reui` skill (installed alongside its MCP) says ReUI's rules win over other design skills. That holds only in a project that already uses ReUI (`@reui` in `components.json` or a `components/reui/` folder). Anywhere else ReUI is one more catalog: the UI profile, `DESIGN.md` and the adoption rules below come first, and its rules (badge variants, `components/reui` imports, its motion timings) don't apply.
 
 ## What to use for each need
 
 | I need | Use |
 | --- | --- |
 | An accessible component with the shadcn API (dialog, menu, field) | The project's `components/ui/` first; then the `shadcn` MCP (`@shadcn`) and the `hextaui` MCP |
+| A data grid, kanban board, filter bar, date selector or tree | the `reui` MCP (`search`, then `get_component` and `get_examples`) |
 | An animated micro-interaction (undo, save, counter, picker) | Watermelon `animated-components`, `@animate-ui`, the `ui-lab` skill, uiarc |
 | A block or multi-section page, a dashboard | Watermelon `get_inspiration` and `compose_page` (`blocks`, `dashboards`) |
 | A CSS transition for one element (tabs, dropdown, toast, accordion) | the `transitions-dev` skill |

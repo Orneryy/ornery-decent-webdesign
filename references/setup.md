@@ -20,6 +20,8 @@ What each item adds:
 | --- | --- |
 | `mcp:shadcn` | Search and read the registries in `components.json`. A project-scope `.mcp.json` that isn't committed won't reach worktrees; user scope covers every folder |
 | `mcp:hextaui` | Docs, API and source for HextaUI's 65 components |
+| `mcp:reui` | Search and API docs for ReUI's data grid, kanban, filters and other components, examples and blocks. Needs a free ReUI account (sign-in through `/mcp`) |
+| `skill:reui` | ReUI's tool reference and design rules; its installer also adds the `reui` MCP for Claude Code, Codex, Cursor, Gemini CLI and OpenCode |
 | `mcp:watermelon` | Search across Watermelon's ~850 items, inspiration and page plans |
 | `mcp:brilliant` | Mock up screens before code. Needs the macOS app, which the user installs from https://brilliant.design |
 | `skill:impeccable` | Direction, critique, audit and polish of UI; creates `PRODUCT.md` and `DESIGN.md` |

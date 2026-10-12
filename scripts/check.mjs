@@ -101,6 +101,7 @@ function addTool(id, ok, status, install, note) {
 for (const [id, cmd] of [
   ["shadcn", "claude mcp add --scope user shadcn -- npx shadcn@latest mcp"],
   ["hextaui", "claude mcp add --scope user --transport http hextaui https://hextaui.com/mcp"],
+  ["reui", "claude mcp add --scope user --transport http reui https://mcp.reui.io/api/mcp"],
 ]) {
   const scope = mcpScope(id);
   addTool(`mcp:${id}`, Boolean(scope), scope ? `configured (${scope})` : "missing", cmd);
@@ -146,6 +147,17 @@ for (const [name, repo] of [
 ]) {
   const ok = skillInstalled(name);
   addTool(`skill:${name}`, ok, ok ? "installed" : "missing", skillAdd(repo, name));
+}
+{
+  // ReUI ships its own installer (skill + MCP entry); REUI_AGENTS_MD=0 keeps it out of AGENTS.md.
+  const ok = skillInstalled("reui");
+  addTool(
+    "skill:reui",
+    ok,
+    ok ? "installed" : "missing",
+    "curl -fsSL https://mcp.reui.io/install | REUI_GLOBAL=1 REUI_AGENTS_MD=0 node -",
+    ok ? null : "The installer also writes the reui MCP into ~/.codex, ~/.cursor, ~/.gemini and opencode configs.",
+  );
 }
 
 // Design foundation: not installed; when missing, creating it is recommended (references/foundation.md).
